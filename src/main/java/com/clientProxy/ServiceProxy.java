@@ -47,6 +47,12 @@ public class ServiceProxy {
     public String asignarContenedores(String jsonAsignacion, String token) {
         return postRequest("/asignaciones?token=" + token, jsonAsignacion);
     }
+    
+    // ✅ AÑADIDO en ServiceProxy.java
+    public String consultarContenedoresPorZona(String codigoPostal, String fecha, String token) {
+        String endpoint = "/contenedores/zona/" + codigoPostal + "?fecha=" + fecha + "&token=" + token;
+        return getRequest(endpoint);
+    }
 
     // METODO GET GENERICO
     private String getRequest(String endpoint) {
